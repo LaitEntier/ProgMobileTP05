@@ -1,61 +1,57 @@
 package com.example.progmobiletp05;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.DataViewHolder> {
-        private ArrayList<Data> donnees;
-        private static RecyclerClickListener recyclerClickListener;
+    private Context context;
+    private ArrayList<Data> data;
+    private static RecyclerClickListener recyclerClickListener;
 
-        public RecyclerViewAdapter(ArrayList<Data> donnees) {
-            this.donnees = donnees;
-        }
+    public RecyclerViewAdapter(Context context, ArrayList<Data> data) {
+        this.context = context;
+        this.data = data;
+    }
 
-        @Override
-        public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recyclerview_item, parent, false);
-            return new DataViewHolder(view);
-        }
+    @Override
+    public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
+        return new DataViewHolder(view);
+    }
 
-        @Override
-        public void onBindViewHolder(DataViewHolder conteneur, int position) {
-            conteneur.tv_principal.setText(donnees.get(position).getPrincipal());
-            conteneur.tv_auxiliaire.setText(donnees.get(position).getAuxiliaire());
-        }
+    @Override
+    public void onBindViewHolder(DataViewHolder container, int position) {
+        String name = data.get(position).getName();
+        container.name.setText(name);
+        String desc = data.get(position).getDescription();
+        container.description.setText(desc);
+        container.image.setImageResource(data.get(position).getImage());
+    }
 
-        @Override
-        public int getItemCount() {
-            return donnees.size();
-        }
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
 
-        public void setRecyclerClickListener(RecyclerClickListener recyclerClickListener) {
-        this.recyclerClickListener = recyclerClickListener;
-        }
-
-        public static class DataViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tv_principal;
-        TextView tv_auxiliaire;
+    public static class DataViewHolder extends RecyclerView.ViewHolder  {
+        TextView name;
+        TextView description;
+        ImageView image;
 
         public DataViewHolder(View itemView) {
-                super(itemView);
-                tv_principal = (TextView) itemView.findViewById(R.id.tv_principal);
-                tv_auxiliaire = (TextView) itemView.findViewById(R.id.tv_auxiliaire);
-                itemView.setOnClickListener(this);
-            }
-
-        public void onClick(View v) {
-            ((CardView)v).setCardBackgroundColor(Color.rgb(255,0,0));
-            recyclerClickListener.onClickRecyclerItem(getAdapterPosition(), v);
-            }
+            super(itemView);
+            name = (TextView) itemView.findViewById(R.id.name);
+            description = (TextView) itemView.findViewById(R.id.size);
+            image = (ImageView) itemView.findViewById(R.id.imageView);
         }
+    }
 }
 

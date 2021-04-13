@@ -1,25 +1,26 @@
 package com.example.progmobiletp05;
 
-import android.view.View;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 public class Data {
-    private String principal;
-    private String auxiliaire;
+    private String name;
+    private String description;
+    private int image;
 
-    Data (String prin, String aux){
-        principal = prin;
-        auxiliaire = aux;
+    Data (String name, String description, int image){
+        this.name = name;
+        this.description = description;
+        this.image = image;
     }
 
-    public String getPrincipal() {
-        return principal;
+    public String getName() {
+        return name;
     }
 
-    public String getAuxiliaire() {
-        return auxiliaire;
+    public String getDescription() {
+        return description;
     }
 
+    public int getImage() {
+        return image;
+    }
 
 }

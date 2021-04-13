@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">Gestion du RecyclerView</string>
+    <string name="app_name">Système Solaire</string>
+    <string name="mercure">Mercure</string>
+    <string name="venus">Venus</string>
+    <string name="terre">Terre</string>
+    <string name="mars">Mars</string>
+    <string name="jupiter">Jupiter</string>
+    <string name="saturne">Saturne</string>
+    <string name="uranus">Uranus</string>
+    <string name="neptune">Neptune</string>
+    <string name="mercuredesc">Une petite planète rocheuse. La plus proche du Soleil.</string>
+    <string name="venusdesc">Une petite planète rocheuse entourée d\'un épais nuage jaunâtre.</string>
+    <string name="terredesc">Une petite planète rocheuse capable d\'accueillir la vie.</string>
+    <string name="marsdesc">Une petite planète rocheuse froide et sans vie qui contenait autre frois de l\'eau liquide.</string>
+    <string name="jupiterdesc">Une géante gazeuse composée à 90% d\'hydrogène et 10% d\'helium.</string>
+    <string name="saturnedesc">Une géante gazeuse composée à 75% d\'hydrogen et 25% d\'helium.</string>
+    <string name="uranusdesc">Une géante gazeuse surtout composée de roches et de glaces. Possède aussi le pire nom.</string>
+    <string name="neptunedesc">Une géante gazeuse surtout composée de roches et de glaces. La plus éloignée du Soleil.</string>
+    <string name="description">Description</string>
+    <string name="nom">Nom</string>
 </resources>
