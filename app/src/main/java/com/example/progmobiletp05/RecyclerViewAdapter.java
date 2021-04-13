@@ -1,16 +1,19 @@
 package com.example.progmobiletp05;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.DataViewHolder> {
         private ArrayList<Data> donnees;
+        private static RecyclerClickListener recyclerClickListener;
 
         public RecyclerViewAdapter(ArrayList<Data> donnees) {
             this.donnees = donnees;
@@ -34,7 +37,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             return donnees.size();
         }
 
-        public static class DataViewHolder extends RecyclerView.ViewHolder {
+        public void setRecyclerClickListener(RecyclerClickListener recyclerClickListener) {
+        this.recyclerClickListener = recyclerClickListener;
+        }
+
+        public static class DataViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tv_principal;
         TextView tv_auxiliaire;
 
@@ -42,6 +49,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 super(itemView);
                 tv_principal = (TextView) itemView.findViewById(R.id.tv_principal);
                 tv_auxiliaire = (TextView) itemView.findViewById(R.id.tv_auxiliaire);
+                itemView.setOnClickListener(this);
+            }
+
+        public void onClick(View v) {
+            ((CardView)v).setCardBackgroundColor(Color.rgb(255,0,0));
+            recyclerClickListener.onClickRecyclerItem(getAdapterPosition(), v);
             }
         }
 }

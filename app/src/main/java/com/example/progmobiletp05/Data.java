@@ -1,5 +1,9 @@
 package com.example.progmobiletp05;
 
+import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 public class Data {
     private String principal;
     private String auxiliaire;
@@ -16,5 +20,6 @@ public class Data {
     public String getAuxiliaire() {
         return auxiliaire;
     }
+
 
 }
